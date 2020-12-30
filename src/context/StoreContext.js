@@ -39,7 +39,6 @@ function StoreContextProvider({ children }) {
   return (
     <StoreContext.Provider
       value={{
-        headerCount: cart.length,
         selectItem,
         product,
         addItemToCart,

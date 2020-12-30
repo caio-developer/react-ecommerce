@@ -1,8 +1,9 @@
 header {
-  padding: 1.5rem;
+  padding: .3rem;
   background-color: lightgray;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 header p {
