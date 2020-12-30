@@ -39,6 +39,7 @@ function StoreContextProvider({ children }) {
   return (
     <StoreContext.Provider
       value={{
+        cart,
         selectItem,
         product,
         addItemToCart,
