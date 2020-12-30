@@ -1,0 +1,10 @@
+header {
+  padding: 1.5rem;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+header p {
+  font-size: 2rem;
+}

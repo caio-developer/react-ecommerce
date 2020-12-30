@@ -1,9 +1,11 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const StoreContext = createContext();
 
 function StoreContextProvider({ children }) {
-  return <StoreContext.Provider value>{children}</StoreContext.Provider>;
+  const [cart, setCart] = useState([]);
+
+  return <StoreContext.Provider value={{headerCount: cart.length}}>{children}</StoreContext.Provider>;
 }
 
 export default StoreContextProvider;
