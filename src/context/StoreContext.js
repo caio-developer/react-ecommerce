@@ -4,8 +4,23 @@ export const StoreContext = createContext();
 
 function StoreContextProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [product, setProduct] = useState(null);
 
-  return <StoreContext.Provider value={{headerCount: cart.length}}>{children}</StoreContext.Provider>;
+  function selectItem(item) {
+    setProduct(item);
+  }
+
+  function addItemToCart(item) {
+    setCart(prevCart => [...prevCart, item]);
+  }
+
+  return (
+    <StoreContext.Provider
+      value={{ headerCount: cart.length, selectItem, product, addItemToCart }}
+    >
+      {children}
+    </StoreContext.Provider>
+  );
 }
 
 export default StoreContextProvider;
