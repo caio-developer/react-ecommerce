@@ -3,7 +3,7 @@ import './style.css';
 import { StoreContext } from '../../context/StoreContext';
 
 function Product() {
-  const { product, addItemToCart } = useContext(StoreContext);
+  const { product, addItemToCart, isInCart, removeItemFromCart } = useContext(StoreContext);
 
   if (product)
     return (
@@ -16,8 +16,12 @@ function Product() {
             <p>R$ {product.preco}</p>
           </div>
 
-          <div className='buttons'>
-            <button onClick={() => addItemToCart(product)}>Adicionar ao Carrinho</button>
+          <div className='button'>
+            {
+              isInCart(product) 
+              ? <button onClick={() => removeItemFromCart(product)}>Remover do carrinho</button>
+              : <button onClick={() => addItemToCart(product)}>Adicionar ao Carrinho</button>
+            }
           </div>
         </div>
       </div>

@@ -21,8 +21,19 @@ function StoreContextProvider({ children }) {
     setNotification(<p>{item.nome} selecionado.</p>);
   }
 
+  function isInCart(item) {
+    if (cart.includes(item)) return true;
+    else return false;
+  }
+
+  function removeItemFromCart(item) {
+    setCart(prevState => prevState.filter(element => element !== item));
+    setNotification(<p>O item {item.nome} foi removido do carrinho.</p>);
+  }
+
   function addItemToCart(item) {
-    setCart(prevCart => [...prevCart, item]);
+    setCart(prevState => [...prevState, item]);
+    setNotification(<p>O item {item.nome} foi adicionado ao carrinho.</p>);
   }
 
   return (
@@ -33,6 +44,8 @@ function StoreContextProvider({ children }) {
         product,
         addItemToCart,
         notification,
+        isInCart,
+        removeItemFromCart,
       }}
     >
       {children}
