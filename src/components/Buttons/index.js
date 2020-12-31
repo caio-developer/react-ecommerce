@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import './style.css';
 import { StoreContext } from '../../context/StoreContext';
 
-function Buttons({ items }) {
-  const { selectItem } = useContext(StoreContext);
+function Buttons() {
+  const { selectItem, state, api } = useContext(StoreContext);
 
-  if (items)
+  if (state.buttonsStatus)
     return (
       <div className='buttons'>
-        {items.map((item, index) => (
+        {api.map((item, index) => (
           <button onClick={() => selectItem(item)} key={item + index}>
             {item.nome}
           </button>
